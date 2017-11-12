@@ -25,6 +25,9 @@ public class InvokeTester{
                 Object result = addMethod.invoke(InvokeTester, new Object[]{1, 2});
                 System.out.println((Integer)result);
                 
-
+                // call echo Method
+                Method echoMethod = classType.getMethod("echo", new Class[] { String.class });
+                Object speak = echoMethod.invoke(InvokeTester, new Object[]{"Tom"});
+                System.out.println(speak);
         }
 }
