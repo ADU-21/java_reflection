@@ -22,12 +22,12 @@ public class InvokeTester{
 
                 // call method via reflection way
                 Method addMethod = classType.getMethod("add", new Class[] {int.class, int.class });  // get add method via method name add parameters 
-                Object result = addMethod.invoke(InvokeTester, new Object[]{1, 2});
+                Object result = addMethod.invoke(invokeTester, new Object[]{1, 2}); // call method via instance
                 System.out.println((Integer)result);
                 
                 // call echo Method
                 Method echoMethod = classType.getMethod("echo", new Class[] { String.class });
-                Object speak = echoMethod.invoke(InvokeTester, new Object[]{"Tom"});
-                System.out.println(speak);
+                Object speak = echoMethod.invoke(invokeTester, new Object[]{"Tom"});
+                System.out.println((String)speak);
         }
 }
