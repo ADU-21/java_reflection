@@ -17,7 +17,7 @@ public class InvokeTester{
 
                 // reflection way
                 Class<?> classType = InvokeTester.class; // get the class Object via java language gramma
-                Object InvokeTester = classType.newInstance(); // new instance
+                Object invokeTester = classType.newInstance(); // new instance
                 // System.out.println(invokeTester instanceof InvokeTester); // test the instance have been created
 
                 // call method via reflection way
