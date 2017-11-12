@@ -1,3 +1,5 @@
+import java.lang.reflect.Method;
+
 public class InvokeTester{
         public int add(int param1, int param2){
                 return param1 + param2;
@@ -7,7 +9,7 @@ public class InvokeTester{
                 return "hello:" + message;
         }
 
-        public static void main(String[] args) throws Excetion{
+        public static void main(String[] args) throws Exception{
                 // traditional way
 //                InvokeTester test = new InvokeTester();
 //                System.out.println(test.add(1,2));
@@ -19,8 +21,10 @@ public class InvokeTester{
                 // System.out.println(invokeTester instanceof InvokeTester); // test the instance have been created
 
                 // call method via reflection way
-                Method addMethod = classType.getMethod("add", new class[] {int.class, int.class });  // get add method via method name add parameters 
-
+                Method addMethod = classType.getMethod("add", new Class[] {int.class, int.class });  // get add method via method name add parameters 
+                Object result = addMethod.invoke(InvokeTester, new Object[]{1, 2});
+                System.out.println((Integer)result);
+                
 
         }
 }
