@@ -1,6 +1,9 @@
 import java.lang.reflect.Method;
+import java.lang.reflect.Field;
 
 public class InvokeTester{
+	private String name;
+
         public int add(int param1, int param2){
                 return param1 + param2;
         }
@@ -29,5 +32,11 @@ public class InvokeTester{
                 Method echoMethod = classType.getMethod("echo", new Class[] { String.class });
                 Object speak = echoMethod.invoke(invokeTester, new Object[]{"Tom"});
                 System.out.println((String)speak);
+
+		// get all field(对象的所有成员变量)
+		Field[] fields = classType.getDeclaredFields();
+		for(Field field : fields){
+			System.out.println(field);
+		}
         }
 }
