@@ -7,9 +7,18 @@ public class InvokeTester{
                 return "hello:" + message;
         }
 
-        public static void main(String[] args){
-                InvokeTester test = new InvokeTester();
-                System.out.println(test.add(1,2));
-                System.out.println(test.echo("Tom"));
+        public static void main(String[] args) throws Exception{
+                // traditional way
+//                InvokeTester test = new InvokeTester();
+//                System.out.println(test.add(1,2));
+//                System.out.println(test.echo("Tom"));
+
+                // reflection way
+                // get the class Object via java language gramma
+                Class<?> classType = InvokeTester.class;
+                // new instance
+                Object invokeTester = classType.newInstance();
+                // test the instance have been created
+                System.out.println(invokeTester instanceof InvokeTester);
         }
 }
