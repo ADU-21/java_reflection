@@ -14,11 +14,13 @@ public class InvokeTester{
 //                System.out.println(test.echo("Tom"));
 
                 // reflection way
-                
                 Class<?> classType = InvokeTester.class; // get the class Object via java language gramma
-                
                 Object InvokeTester = classType.newInstance(); // new instance
-                
                 // System.out.println(invokeTester instanceof InvokeTester); // test the instance have been created
+
+                // call method via reflection way
+                Method addMethod = classType.getMethod("add", new class[] {int.class, int.class });  // get add method via method name add parameters 
+
+
         }
 }
